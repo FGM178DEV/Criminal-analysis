@@ -1,0 +1,39 @@
+import pandas as pd
+
+# Data for Crime Indicators: Homicides, Rapes, and Robberies for America and Europe
+data = {
+    "Region": ["America", "Europe"],
+    "Homicides_per_100k": [16.3, 3.0],  # Hypothetical data
+    "Rapes_per_100k": [28.6, 9.7],      # Hypothetical data
+    "Robberies_per_100k": [144.5, 35.6] # Hypothetical data
+}
+
+# Create DataFrame
+crime_df = pd.DataFrame(data)
+
+import matplotlib.pyplot as plt
+
+# Plotting
+fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(10, 15))
+
+# Homicides
+axes[0].bar(crime_df['Region'], crime_df['Homicides_per_100k'], color=['red', 'blue'])
+axes[0].set_title('Homicides per 100k: America vs Europe')
+axes[0].set_ylabel('Homicides per 100k')
+
+# Rapes
+axes[1].bar(crime_df['Region'], crime_df['Rapes_per_100k'], color=['red', 'blue'])
+axes[1].set_title('Rapes per 100k: America vs Europe')
+axes[1].set_ylabel('Rapes per 100k')
+
+# Robberies
+axes[2].bar(crime_df['Region'], crime_df['Robberies_per_100k'], color=['red', 'blue'])
+axes[2].set_title('Robberies per 100k: America vs Europe')
+axes[2].set_ylabel('Robberies per 100k')
+
+plt.tight_layout()
+plt.show()
+
+import ace_tools as tools; tools.display_dataframe_to_user(name="Crime Indicators: America vs Europe", dataframe=crime_df)
+
+crime_df
